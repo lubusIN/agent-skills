@@ -1,0 +1,23 @@
+{
+  "doctype": "Dashboard",
+  "name": "Sample Doc",
+  "document_type": "Sample Doc",
+  "is_standard": 1,
+  "charts": [],
+  "cards": [],
+  "links": [
+    {
+      "label": "Sample Doc Items",
+      "type": "DocType",
+      "name": "Sample Doc Item"
+    }
+  ],
+  "transactions": [
+    {
+      "label": "Related",
+      "items": [
+        "Sample Doc Item"
+      ]
+    }
+  ]
+}

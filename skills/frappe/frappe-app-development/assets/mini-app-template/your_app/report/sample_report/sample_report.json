@@ -1,0 +1,10 @@
+{
+  "doctype": "Report",
+  "name": "Sample Report",
+  "ref_doctype": "Sample Doc",
+  "report_type": "Query Report",
+  "is_standard": "Yes",
+  "module": "Your App",
+  "add_total_row": 0,
+  "disabled": 0
+}

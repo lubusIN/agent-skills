@@ -1,0 +1,25 @@
+{
+  "doctype": "DocType",
+  "name": "Sample Single",
+  "module": "Your App",
+  "custom": 1,
+  "is_single": 1,
+  "field_order": [
+    "default_currency",
+    "enable_feature"
+  ],
+  "fields": [
+    {
+      "fieldname": "default_currency",
+      "fieldtype": "Currency",
+      "label": "Default Currency",
+      "reqd": 1
+    },
+    {
+      "fieldname": "enable_feature",
+      "fieldtype": "Check",
+      "label": "Enable Feature",
+      "default": 0
+    }
+  ]
+}

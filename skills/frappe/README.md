@@ -18,8 +18,14 @@ These Agent Skills solve this by giving AI assistants expert-level Frappe knowle
 |-------|-------------|
 | `frappe-router` | Entry point—routes to appropriate skill based on task |
 | `frappe-project-triage` | Detect project type, installed apps, version, and tooling |
+| `frappe-app-development` | Scaffold apps, architecture, hooks, background jobs, production patterns |
 | `frappe-doctype-development` | Create and modify DocTypes, controllers, child tables |
 | `frappe-api-development` | Build REST and RPC APIs with proper auth and permissions |
+| `frappe-desk-customization` | Customize Desk UI with form scripts, list views, JS API |
+| `frappe-frontend-development` | Build Vue 3 frontends with Frappe UI, portals |
+| `frappe-printing-templates` | Print formats, email templates, Jinja, PDF generation |
+| `frappe-reports` | Report Builder, Query Reports, Script Reports |
+| `frappe-web-forms` | Public-facing web forms for data collection |
 | `frappe-testing` | Write and run unit, integration, and UI tests |
 | `frappe-manager` | Docker-based dev environments with Frappe Manager |
 | `frappe-enterprise-patterns` | Production patterns for CRM/Helpdesk-style apps |

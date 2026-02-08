@@ -14,19 +14,11 @@ Agent Skills solve this by giving AI assistants expert-level framework knowledge
 
 ## Available Skills
 
-### Frappe Framework
+### Frappe Framework (13 Skills)
 
-| Skill | Description |
-|-------|-------------|
-| `frappe-router` | Entry point—routes to appropriate skill based on task |
-| `frappe-project-triage` | Detect project type, installed apps, version, and tooling |
-| `frappe-doctype-development` | Create and modify DocTypes, controllers, child tables |
-| `frappe-api-development` | Build REST and RPC APIs with proper auth and permissions |
-| `frappe-testing` | Write and run unit, integration, and UI tests |
-| `frappe-manager` | Docker-based dev environments with Frappe Manager |
-| `frappe-enterprise-patterns` | Production patterns for CRM/Helpdesk-style apps |
+Expert-level skills covering the complete Frappe development lifecycle—from app scaffolding and DocType development to APIs, UI customization, reports, testing, and production patterns.
 
-[📖 View Frappe Skills Documentation](skills/frappe/README.md)
+**[📖 View all Frappe Skills →](skills/frappe/README.md)**
 
 ### Laravel (Coming Soon)
 

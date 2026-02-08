@@ -14,20 +14,37 @@ These Agent Skills solve this by giving AI assistants expert-level Frappe knowle
 
 ## Available Skills
 
+#### Core Skills
 | Skill | Description |
 |-------|-------------|
 | `frappe-router` | Entry point—routes to appropriate skill based on task |
 | `frappe-project-triage` | Detect project type, installed apps, version, and tooling |
-| `frappe-app-development` | Scaffold apps, architecture, hooks, background jobs, production patterns |
+
+#### Development Skills
+| Skill | Description |
+|-------|-------------|
+| `frappe-app-development` | Scaffold and architect custom Frappe apps with hooks, background jobs, and service layers |
 | `frappe-doctype-development` | Create and modify DocTypes, controllers, child tables |
 | `frappe-api-development` | Build REST and RPC APIs with proper auth and permissions |
-| `frappe-desk-customization` | Customize Desk UI with form scripts, list views, JS API |
-| `frappe-frontend-development` | Build Vue 3 frontends with Frappe UI, portals |
-| `frappe-printing-templates` | Print formats, email templates, Jinja, PDF generation |
-| `frappe-reports` | Report Builder, Query Reports, Script Reports |
-| `frappe-web-forms` | Public-facing web forms for data collection |
+
+#### UI & Frontend Skills
+| Skill | Description |
+|-------|-------------|
+| `frappe-desk-customization` | Customize Frappe Desk UI with form scripts, list views, and dialogs |
+| `frappe-frontend-development` | Build modern Vue 3 frontend apps using Frappe UI |
+| `frappe-printing-templates` | Build print formats, email templates, and Jinja-based rendering |
+| `frappe-reports` | Create Report Builder, Query Reports (SQL), and Script Reports (Python + JS) |
+| `frappe-web-forms` | Build public-facing web forms for data collection |
+
+#### Testing & Infrastructure
+| Skill | Description |
+|-------|-------------|
 | `frappe-testing` | Write and run unit, integration, and UI tests |
 | `frappe-manager` | Docker-based dev environments with Frappe Manager |
+
+#### Patterns & Best Practices
+| Skill | Description |
+|-------|-------------|
 | `frappe-enterprise-patterns` | Production patterns for CRM/Helpdesk-style apps |
 
 ## Installation

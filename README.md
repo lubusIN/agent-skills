@@ -25,15 +25,6 @@ Expert-level skills covering the complete Frappe development lifecycle—from ap
 **[📖 View all Skills (13) →](skills/frappe/README.md)**
 
 </td>
-
-<td style="border: none; vertical-align: top; width: 33%;">
-<h3>Coming Soon</h3>
-</td>
-
-<td style="border: none; vertical-align: top; width: 33%;">
-<h3>Coming Soon</h3>
-</td>
-
 </tr>
 </table>
 
@@ -105,20 +96,6 @@ Each SKILL.md follows a standard format:
 - **Failure modes** — Common issues and fixes
 - **Escalation** — When to consult docs or ask user
 
-## Compatibility
-
-### Frameworks
-- **Frappe Framework** v13+ (ERPNext, HRMS, and custom apps)
-- **Laravel** (Coming Soon)
-- **FilamentPHP** (Coming Soon)
-
-### AI Assistants
-Compatible with any AI assistant that supports Agent Skills:
-- Claude Code
-- Cursor
-- GitHub Copilot
-- VS Code with compatible extensions
-
 ## Directory Structure
 
 ```
@@ -168,12 +145,21 @@ To add skills for a new framework (e.g., Django, Rails):
 3. Create individual skill directories following the Agent Skills specification
 4. Update the main README.md to list the new framework
 
-## License
-
-MIT
-
 ## Credits
 
 - Inspired by [WordPress Agent Skills](https://github.com/WordPress/agent-skills)
 - Built on the [Anthropic Agent Skills Specification](https://agentskills.io/)
 - Maintained by [Lubus](https://github.com/lubusIN)
+
+
+## Meet Your Artisans
+
+[LUBUS](http://lubus.in) is a web design agency based in Mumbai.
+
+<a href="https://cal.com/lubus">
+<img src="https://raw.githubusercontent.com/lubusIN/.github/refs/heads/main/profile/banner.png" />
+</a>
+
+## License
+
+Agent Skills is open-sourced licensed under the [MIT License](LICENSE).

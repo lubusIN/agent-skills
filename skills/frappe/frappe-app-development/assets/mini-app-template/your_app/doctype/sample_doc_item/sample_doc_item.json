@@ -1,0 +1,38 @@
+{
+  "doctype": "DocType",
+  "name": "Sample Doc Item",
+  "module": "Your App",
+  "custom": 1,
+  "istable": 1,
+  "editable_grid": 1,
+  "allow_rename": 0,
+  "allow_copy": 0,
+  "allow_import": 1,
+  "field_order": [
+    "item_code",
+    "qty",
+    "rate"
+  ],
+  "fields": [
+    {
+      "fieldname": "item_code",
+      "fieldtype": "Data",
+      "label": "Item Code",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "qty",
+      "fieldtype": "Float",
+      "label": "Qty",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "rate",
+      "fieldtype": "Currency",
+      "label": "Rate",
+      "in_list_view": 1
+    }
+  ]
+}

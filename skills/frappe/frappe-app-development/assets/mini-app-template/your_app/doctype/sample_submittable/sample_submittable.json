@@ -1,0 +1,26 @@
+{
+  "doctype": "DocType",
+  "name": "Sample Submittable",
+  "module": "Your App",
+  "custom": 1,
+  "is_submittable": 1,
+  "field_order": [
+    "title",
+    "status"
+  ],
+  "fields": [
+    {
+      "fieldname": "title",
+      "fieldtype": "Data",
+      "label": "Title",
+      "reqd": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Draft\nSubmitted\nCancelled",
+      "default": "Draft"
+    }
+  ]
+}

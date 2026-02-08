@@ -1,0 +1,27 @@
+{
+  "doctype": "DocType",
+  "name": "Sample Tree",
+  "module": "Your App",
+  "custom": 1,
+  "is_tree": 1,
+  "nsm_parent_field": "parent_sample_tree",
+  "field_order": [
+    "name",
+    "parent_sample_tree",
+    "is_group"
+  ],
+  "fields": [
+    {
+      "fieldname": "parent_sample_tree",
+      "fieldtype": "Link",
+      "label": "Parent Sample Tree",
+      "options": "Sample Tree"
+    },
+    {
+      "fieldname": "is_group",
+      "fieldtype": "Check",
+      "label": "Is Group",
+      "default": 0
+    }
+  ]
+}

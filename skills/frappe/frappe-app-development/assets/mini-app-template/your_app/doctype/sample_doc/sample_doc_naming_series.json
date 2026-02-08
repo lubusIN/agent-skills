@@ -1,0 +1,13 @@
+{
+  "autoname": "naming_series:",
+  "naming_series": "SD-.YYYY.-",
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "SD-.YYYY.-\nSD-.YYYY.-.###",
+      "reqd": 1
+    }
+  ]
+}

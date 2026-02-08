@@ -14,19 +14,28 @@ Agent Skills solve this by giving AI assistants expert-level framework knowledge
 
 ## Available Skills
 
-### Frappe Framework (13 Skills)
+<table style="border: none;" cellspacing="20" cellpadding="10">
+<tr style="border: none;">
 
+<td style="border: none; vertical-align: top; width: 33%;">
+<h3>Frappe Framework</h3>
 Expert-level skills covering the complete Frappe development lifecycle—from app scaffolding and DocType development to APIs, UI customization, reports, testing, and production patterns.
+<br/><br/>
 
-**[📖 View all Frappe Skills →](skills/frappe/README.md)**
+**[📖 View all Skills (13) →](skills/frappe/README.md)**
 
-### Laravel (Coming Soon)
+</td>
 
-Laravel skills for routing, Eloquent ORM, middleware, authentication, and more.
+<td style="border: none; vertical-align: top; width: 33%;">
+<h3>Coming Soon</h3>
+</td>
 
-### FilamentPHP (Coming Soon)
+<td style="border: none; vertical-align: top; width: 33%;">
+<h3>Coming Soon</h3>
+</td>
 
-FilamentPHP skills for admin panels, resources, forms, tables, and custom pages.
+</tr>
+</table>
 
 ## Quick Start
 

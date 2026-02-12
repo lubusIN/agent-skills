@@ -24,6 +24,7 @@ Route to the appropriate Frappe skill based on your task.
 | Build REST/RPC APIs, webhooks, integrations | → `frappe-api-development` |
 | Customize Desk UI, form scripts, list views, JS API | → `frappe-desk-customization` |
 | Build Vue 3 frontends with Frappe UI, portals | → `frappe-frontend-development` |
+| UI/UX patterns from CRM/Helpdesk/HRMS | → `frappe-ui-patterns` |
 | Create print formats, email templates, Jinja, PDFs | → `frappe-printing-templates` |
 | Build reports (Builder, Query, Script) | → `frappe-reports` |
 | Create public web forms for data collection | → `frappe-web-forms` |
@@ -69,6 +70,9 @@ Is this about Desk UI, form scripts, or client-side JS?
 Is this about a Vue 3 frontend or portal?
   → frappe-frontend-development
 
+Is this about UI/UX patterns or app design?
+  → frappe-ui-patterns
+
 Is this about print formats, PDFs, or Jinja templates?
   → frappe-printing-templates
 
@@ -104,3 +108,5 @@ Is this a complex enterprise system?
 | Wrong skill for task | Incomplete implementation | Match task type to skill carefully |
 | Ignoring version differences | Deprecated/missing APIs | Check version compatibility in skill references |
 | Working on wrong site | Changes don't appear | Always specify `--site` flag |
+| Using vanilla JS/jQuery for frontends | Ecosystem mismatch | Use Frappe UI (Vue 3) via `frappe-frontend-development` |
+| Custom app shell for CRUD apps | Inconsistent UX | Follow CRM/Helpdesk patterns via `frappe-enterprise-patterns` |

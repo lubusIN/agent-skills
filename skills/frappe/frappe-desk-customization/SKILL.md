@@ -296,3 +296,22 @@ let route = frappe.get_route();
 
 - [references/desk.md](references/desk.md) — Desk UI views and scripting
 - [references/js-api.md](references/js-api.md) — JavaScript client API reference
+
+## Guardrails
+
+- **Use `frm.doc` not `doc` directly**: Always access document via `frm.doc` for consistency and reactivity
+- **Validate before save**: Use `frm.validate()` in `validate` event, not `before_save`
+- **Async awareness**: `frappe.call()` is async; use callbacks or async/await for sequential operations
+- **Refresh after field changes**: Call `frm.refresh_field()` or `frm.refresh_fields()` after programmatic changes
+- **Check `frm.is_new()` appropriately**: Some operations only make sense on saved documents
+
+## Common Mistakes
+
+| Mistake | Why It Fails | Fix |
+|---------|--------------|-----|
+| Missing `frm.refresh_field()` after `set_value` | UI doesn't update | Call `frm.refresh_field('fieldname')` after `frm.set_value()` |
+| Wrong event hook name | Event never fires | Use exact names: `refresh`, `validate`, `onload`, `before_save` |
+| Blocking UI with sync calls | Page freezes | Use `frappe.call()` with async: true (default) |
+| Using `cur_frm` instead of `frm` | Breaks in dialogs/multiple forms | Always use the `frm` parameter passed to handlers |
+| Not checking `frm.doc.docstatus` | Buttons appear on submitted docs | Check `frm.doc.docstatus == 0` before showing edit actions |
+| `console.log(frm.doc)` showing stale data | Debugging confusion | Use `frm.reload_doc()` or check network responses |

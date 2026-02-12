@@ -207,3 +207,22 @@ bench --site <site> run-ui-tests my_app --headless
 - [references/test-patterns.md](references/test-patterns.md) - Common test patterns
 - [references/fixtures.md](references/fixtures.md) - Test data management
 - [references/cypress.md](references/cypress.md) - UI testing
+
+## Guardrails
+
+- **Use test fixtures**: Load test data via fixtures, not manual creation in each test
+- **Clean up test data**: Delete created records in `tearDown()` or use `frappe.db.rollback()`
+- **Mock external services**: Never call real APIs in tests; mock HTTP calls
+- **Isolate tests**: Each test should be independent; no reliance on test execution order
+- **Set user context explicitly**: Use `frappe.set_user()` to test as specific users
+
+## Common Mistakes
+
+| Mistake | Why It Fails | Fix |
+|---------|--------------|-----|
+| Not using `FrappeTestCase` | Missing test setup/teardown | Extend `frappe.tests.utils.FrappeTestCase` |
+| Missing db rollback | Test pollution, flaky tests | Use `frappe.db.rollback()` in tearDown or transactions |
+| Flaky async tests | Intermittent failures | Use `frappe.tests.utils.run_until()` or proper async handling |
+| Testing implementation not behavior | Brittle tests | Test outcomes, not internal method calls |
+| Hardcoded test data | Conflicts with existing data | Use unique names like `_Test Record {uuid}` |
+| Skipping permission tests | Security holes | Test with different user roles, not just Administrator |

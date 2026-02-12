@@ -109,3 +109,22 @@ Use this output to route to the appropriate skill:
 - API work → `frappe-api-development`
 - Testing → `frappe-testing`
 - Enterprise patterns → `frappe-enterprise-patterns`
+
+## Guardrails
+
+- **Never modify code** before completing triage - understand the project first
+- **Check for custom apps** that may override standard behavior
+- **Verify site exists** before running site-specific commands
+- **Check developer_mode** before making schema changes (required for DocType modifications)
+- **Note Node.js version** - frontend builds require compatible Node (typically 18+ for v15)
+
+## Common Mistakes
+
+| Mistake | Why It Fails | Fix |
+|---------|--------------|-----|
+| Running `bench migrate` without site | Affects wrong/default site | Always use `--site sitename` |
+| Assuming ERPNext is installed | Import errors, missing DocTypes | Check `list-apps` output first |
+| Missing FM shell context | bench commands not found | Use `fm shell sitename` first |
+| Wrong directory level | Commands fail silently | Navigate to bench root (where `apps/` exists) |
+| Ignoring custom app overrides | Unexpected behavior | Check hooks.py for overrides |
+| Not checking Python version | Syntax/compatibility errors | Verify Python >= 3.10 for v15+ |

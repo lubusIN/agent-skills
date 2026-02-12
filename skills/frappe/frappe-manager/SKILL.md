@@ -25,14 +25,7 @@ Manage Docker-based Frappe development environments using Frappe Manager (FM).
 
 ## Procedure
 
-### 0) Guardrails
-
-- FM sites are Docker-based—ensure Docker daemon is running
-- Each site runs isolated; changes don't affect host
-- For production, use proper SSL and backup strategies
-- FM is third-party (rtCamp), not official Frappe
-
-### 1) Install Frappe Manager
+### 0) Install Frappe Manager
 
 ```bash
 # Install via pipx
@@ -42,7 +35,7 @@ pipx install frappe-manager
 fm --install-completion
 ```
 
-### 2) Create a site
+### 1) Create a site
 
 ```bash
 # Basic site (frappe only)
@@ -58,7 +51,7 @@ fm create mysite --apps erpnext --apps hrms --environment dev
 fm create example.com --apps erpnext --env prod --ssl letsencrypt
 ```
 
-### 3) Manage sites
+### 2) Manage sites
 
 ```bash
 # List all sites
@@ -78,7 +71,7 @@ fm logs mysite -f
 fm delete mysite
 ```
 
-### 4) Development workflow
+### 3) Development workflow
 
 ```bash
 # Access shell inside container
@@ -101,7 +94,7 @@ fm code mysite
 fm code mysite --debugger
 ```
 
-### 5) Agent-driven development
+### 4) Agent-driven development
 
 Perfect for AI agents developing Frappe apps:
 
@@ -131,7 +124,7 @@ fm delete testsite
 fm create testsite --apps erpnext:version-15 --environment dev
 ```
 
-### 6) Internal service management (fmx)
+### 5) Internal service management (fmx)
 
 Inside the container, use `fmx` for service control:
 
@@ -172,3 +165,22 @@ fmx stop        # Stop services
 - [references/agent-workflow.md](references/agent-workflow.md) - Agent development patterns
 - [references/bench-commands.md](references/bench-commands.md) - Bench CLI inside container
 - https://github.com/rtCamp/Frappe-Manager
+
+## Guardrails
+
+- **Always backup before operations**: Run `fm backup <site>` before major changes or updates
+- **Use named sites**: Avoid generic names; use descriptive site names for project identification
+- **Check SSH access**: Ensure SSH keys are configured for private repos before app installation
+- **Verify Docker status**: Run `fm doctor` to check Docker and FM health before operations
+- **Use `fm shell` for commands**: Always enter container shell before running bench commands
+
+## Common Mistakes
+
+| Mistake | Why It Fails | Fix |
+|---------|--------------|-----|
+| Running bench commands outside `fm shell` | "Command not found" or wrong site | Always `fm shell <site>` first |
+| Wrong site context | Operations affect wrong site | Check prompt shows correct site; use `bench --site <site>` |
+| Missing volumes on recreate | Data loss | Use `fm recreate --keep-volumes` or backup first |
+| Not checking `fm doctor` | Silent configuration issues | Run `fm doctor` to diagnose problems |
+| Using `localhost` in site URL | DNS resolution issues | Use `<site>.localhost` format for local access |
+| Forgetting to `fm start` after reboot | Site not accessible | Run `fm start <site>` or `fm start --all` |

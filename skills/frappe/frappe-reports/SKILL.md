@@ -289,3 +289,22 @@ Reports are auto-discovered if they follow the standard directory structure. No 
 ## References
 
 - [references/reports.md](references/reports.md) — Report types, creation, and examples
+
+## Guardrails
+
+- **Validate filters**: Check filter values before building queries; handle empty/invalid input
+- **Handle empty results**: Always handle case where query returns no data; show appropriate message
+- **Use `frappe.db.escape()`**: Escape user input in SQL queries to prevent injection
+- **Limit result sets**: Add LIMIT clause or pagination for large datasets
+- **Check permissions in execute**: Verify user has permission to see the data
+
+## Common Mistakes
+
+| Mistake | Why It Fails | Fix |
+|---------|--------------|-----|
+| SQL injection via filters | Security vulnerability | Use `frappe.db.escape()` or Query Builder with parameters |
+| Missing permission checks | Unauthorized data access | Verify `frappe.has_permission()` or filter by allowed records |
+| Unbounded queries | Timeouts, memory issues | Add `LIMIT`, use pagination, or filter by date range |
+| Wrong column fieldtype | Formatting issues | Match column `fieldtype` to data (Currency, Date, etc.) |
+| Not handling None in aggregations | Errors or wrong totals | Use `COALESCE()` or `IFNULL()` in SQL |
+| Hardcoded `docstatus` assumptions | Missing draft/cancelled records | Explicitly filter `docstatus` based on report needs |

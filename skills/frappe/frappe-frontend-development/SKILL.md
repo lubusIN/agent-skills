@@ -331,3 +331,22 @@ def get_context(context):
 
 - [references/frappe-ui.md](references/frappe-ui.md) — Frappe UI framework reference
 - [references/portal-development.md](references/portal-development.md) — Portal pages overview
+
+## Guardrails
+
+- **Use FrappeUI components**: Prefer `<Button>`, `<Input>`, `<FormControl>` over custom HTML for consistency
+- **Handle loading states**: Always show loading indicators during API calls; use `resource.loading`
+- **Validate API responses**: Check for errors before accessing data; handle `exc` responses
+- **Configure proxy correctly**: Dev server must proxy API calls to Frappe backend
+- **Handle authentication**: Check `$session.user` and redirect to login when needed
+
+## Common Mistakes
+
+| Mistake | Why It Fails | Fix |
+|---------|--------------|-----|
+| Missing CORS/proxy setup | API calls fail in development | Configure Vite proxy to forward `/api` to Frappe site |
+| Not handling auth state | App crashes for logged-out users | Check `call('frappe.auth.get_logged_user')` on mount |
+| Wrong resource URLs | 404 errors on API calls | Use `createResource` with correct method paths |
+| Hardcoded site URL | Breaks across environments | Use relative URLs or environment variables |
+| Not including CSRF token | POST requests fail | Use `frappe.csrf_token` or configure session properly |
+| Missing TailwindCSS config | Frappe UI styles broken | Include `frappe-ui` in Tailwind content paths |

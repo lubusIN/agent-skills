@@ -169,3 +169,22 @@ Web forms use the website theme by default. For custom styling:
 ## References
 
 - [references/web-forms.md](references/web-forms.md) — Web Form creation and customization
+
+## Guardrails
+
+- **Validate input server-side**: Never trust client validation; check in `validate()` Python method
+- **Use captcha for public forms**: Enable reCAPTCHA for guest-accessible forms to prevent spam
+- **Sanitize output**: Escape user-submitted data when displaying; use `frappe.utils.escape_html()`
+- **Limit file uploads**: Set max file size and allowed types for attachment fields
+- **Check rate limits**: Consider throttling form submissions from same IP
+
+## Common Mistakes
+
+| Mistake | Why It Fails | Fix |
+|---------|--------------|-----|
+| Missing DocType permissions | "Permission denied" on submit | Grant Create permission to Website User or Guest role |
+| Not handling file uploads | Files don't attach to record | Configure Attach field properly; check upload limits |
+| XSS vulnerabilities | Security risk | Escape user input in display; use `| e` filter in templates |
+| Forgetting to publish form | 404 error | Check "Published" checkbox in Web Form |
+| Client-only validation | Invalid data in database | Add `validate()` method in web form Python file |
+| Not testing as guest user | Works for admin, fails for users | Test in incognito/logged out mode |

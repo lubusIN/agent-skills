@@ -296,3 +296,22 @@ else:
 
 - hooks.py and extension points → `frappe-doctype-development` ([hooks-extensions.md](../frappe-doctype-development/references/hooks-extensions.md))
 - Python API reference → `frappe-api-development` ([python-api.md](../frappe-api-development/references/python-api.md))
+
+## Guardrails
+
+- **Follow naming conventions**: App name must be lowercase with underscores, valid Python identifier
+- **Use hooks.py for integrations**: Never monkey-patch; use doc_events, scheduler_events, boot_session hooks
+- **Keep hooks.py clean**: Only configuration, no logic; import from modules
+- **Maintain backwards compatibility**: Use `frappe.version` checks for cross-version support
+- **Export fixtures properly**: Use `fixtures` in hooks.py for data that should sync with app
+
+## Common Mistakes
+
+| Mistake | Why It Fails | Fix |
+|---------|--------------|-----|
+| App not in `installed_apps` | App code not loaded | Run `bench --site <site> install-app my_app` |
+| Wrong module path in hooks | Events don't fire | Verify path matches actual `my_app/module/file.py` structure |
+| Duplicate hook registrations | Events fire multiple times | Check hooks.py for duplicates; use list not repeated keys |
+| Editing hooks.py without restart | Changes not picked up | Run `bench restart` after hooks.py changes |
+| Missing `__init__.py` files | Module import errors | Ensure every directory has `__init__.py` |
+| Logic in hooks.py | Hard to test, import errors | Move logic to separate modules, import in hooks |

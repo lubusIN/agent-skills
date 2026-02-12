@@ -151,3 +151,22 @@ Create Workflow DocType linking to your DocType with states and transitions.
 - [references/controllers.md](references/controllers.md) - Controller lifecycle hooks
 - [references/child-tables.md](references/child-tables.md) - Parent-child patterns
 - [references/naming.md](references/naming.md) - Naming patterns
+
+## Guardrails
+
+- **Check developer_mode before schema changes**: DocType modifications only export to files when `developer_mode = 1` in site config
+- **Verify naming series uniqueness**: Ensure naming series prefixes don't conflict with existing DocTypes
+- **Test child tables separately**: Child tables have their own lifecycle; test them in isolation before parent integration
+- **Always run migrate after changes**: Schema changes require `bench --site <site> migrate` to apply
+- **Validate fieldname conventions**: Use snake_case, max 140 chars, no reserved SQL keywords
+
+## Common Mistakes
+
+| Mistake | Why It Fails | Fix |
+|---------|--------------|-----|
+| Missing `reqd` on mandatory fields | Users can save incomplete data | Set `reqd: 1` on fields that must have values |
+| Wrong fieldtype for data | Data truncation or validation errors | Match fieldtype to data (e.g., `Currency` for money, not `Float`) |
+| Not running `bench migrate` | Schema changes not applied to database | Always run `bench --site <site> migrate` after DocType changes |
+| Circular Link dependencies | DocType creation fails | Use Dynamic Link or restructure relationships |
+| Controller class name mismatch | Controller methods not called | Class name must be PascalCase of DocType name (e.g., `SalesOrder` for "Sales Order") |
+| Missing `in_list_view` on key fields | Fields not visible in list | Set `in_list_view: 1` on important fields |

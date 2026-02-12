@@ -262,3 +262,22 @@ frappe.sendmail(
 
 - [references/jinja.md](references/jinja.md) — Jinja templating and Frappe Jinja API
 - [references/printing.md](references/printing.md) — Print formats and PDF generation
+
+## Guardrails
+
+- **Test with actual data**: Always preview with real documents; edge cases break templates
+- **Handle missing fields gracefully**: Use `{{ doc.field or '' }}` or `{% if doc.field %}`
+- **Use `get_url()` for images**: Never hardcode URLs; use `{{ frappe.utils.get_url() }}/files/...`
+- **Escape user content**: Use `{{ value | e }}` for user-generated content to prevent XSS
+- **Keep styling inline**: PDF generators don't support external CSS; use inline `style` attributes
+
+## Common Mistakes
+
+| Mistake | Why It Fails | Fix |
+|---------|--------------|-----|
+| Wrong Jinja syntax | Template error, blank output | Use `{{ }}` for output, `{% %}` for logic; check closing tags |
+| Missing filters | Raw data displayed | Use `frappe.format()` or `frappe.format_date()` for formatting |
+| Hardcoded URLs | Images/links break across sites | Use `{{ frappe.utils.get_url() }}` for absolute URLs |
+| Accessing child table wrong | Empty or error | Use `{% for item in doc.items %}` not `doc.child_table_name` |
+| Complex CSS in print format | Styling lost in PDF | Use inline styles, simple layouts, `<table>` for structure |
+| Not handling None values | `'None'` string in output | Use `{{ value or '' }}` or `{% if value %}` |

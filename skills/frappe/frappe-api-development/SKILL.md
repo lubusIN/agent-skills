@@ -217,3 +217,22 @@ def check_job_status(job_id):
 - [references/authentication.md](references/authentication.md) - Auth patterns
 - [references/permissions.md](references/permissions.md) - Permission system
 - [references/webhooks.md](references/webhooks.md) - Outbound webhooks
+
+## Guardrails
+
+- **Always validate input**: Never trust client data; validate type, length, and format server-side
+- **Use permission callbacks**: Check `frappe.has_permission()` explicitly in whitelisted methods
+- **Sanitize user input**: Use `frappe.db.escape()` for SQL, avoid `eval()` and dynamic code execution
+- **Handle rate limiting**: Implement rate limits for public APIs to prevent abuse
+- **Return structured errors**: Use `frappe.throw()` with proper HTTP status codes
+
+## Common Mistakes
+
+| Mistake | Why It Fails | Fix |
+|---------|--------------|-----|
+| Missing `@frappe.whitelist()` | Method returns "Method not found" error | Add decorator to expose method via API |
+| Using GET for mutations | Violates REST conventions, CSRF issues | Use POST/PUT/DELETE for data changes |
+| Not handling errors | 500 errors expose stack traces | Wrap in try/except, use `frappe.throw()` |
+| Exposing sensitive data | Security breach | Filter response fields, check permissions |
+| Missing `allow_guest=True` | Public endpoints return 403 | Add `@frappe.whitelist(allow_guest=True)` for unauthenticated access |
+| SQL injection in queries | Database compromise | Use Query Builder or `frappe.db.escape()` |

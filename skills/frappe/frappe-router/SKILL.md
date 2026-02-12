@@ -14,7 +14,7 @@ Route to the appropriate Frappe skill based on your task.
 
 ## Procedure
 
-### 1) Identify task type
+### 0) Identify task type
 
 | Task | Skill |
 |------|-------|
@@ -31,7 +31,7 @@ Route to the appropriate Frappe skill based on your task.
 | Set up dev environment with Docker/FM | → `frappe-manager` |
 | Build CRM/Helpdesk/enterprise systems | → `frappe-enterprise-patterns` |
 
-### 2) Run triage first (recommended)
+### 1) Run triage first (recommended)
 
 Before deep work, run `frappe-project-triage` to understand:
 - Project type (bench/FM/standalone)
@@ -39,7 +39,7 @@ Before deep work, run `frappe-project-triage` to understand:
 - Installed apps
 - Available tooling
 
-### 3) Combine skills as needed
+### 2) Combine skills as needed
 
 Complex tasks may require multiple skills:
 - New app = `frappe-app-development` + `frappe-doctype-development` + `frappe-api-development` + `frappe-testing`
@@ -87,3 +87,20 @@ Is this about local dev environment?
 Is this a complex enterprise system?
   → frappe-enterprise-patterns
 ```
+
+## Guardrails
+
+- **Always run triage first** before making code changes to unknown projects
+- **Check Frappe version** before recommending features (API availability varies significantly between v13, v14, v15, v16)
+- **Don't assume ERPNext** - many projects use Frappe Framework without ERPNext
+- **Verify site context** - commands like `bench migrate` affect specific sites
+
+## Common Mistakes
+
+| Mistake | Why It Fails | Fix |
+|---------|--------------|-----|
+| Skipping project triage | Applying wrong patterns for version | Always run triage first |
+| Using ERPNext-specific code in Frappe-only projects | Module not found errors | Check installed apps first |
+| Wrong skill for task | Incomplete implementation | Match task type to skill carefully |
+| Ignoring version differences | Deprecated/missing APIs | Check version compatibility in skill references |
+| Working on wrong site | Changes don't appear | Always specify `--site` flag |

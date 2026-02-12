@@ -210,3 +210,22 @@ frappe.enqueue(
 - [references/workflow-patterns.md](references/workflow-patterns.md) - State machine design
 - [references/sla-implementation.md](references/sla-implementation.md) - SLA details
 - [references/integration-patterns.md](references/integration-patterns.md) - External systems
+
+## Guardrails
+
+- **Design workflows carefully**: Map all states and transitions before implementation; consider rollback paths
+- **Handle edge cases**: Plan for cancelled, on-hold, and exception states in workflows
+- **Test performance early**: Run load tests for high-volume DocTypes and complex queries
+- **Use background jobs for heavy operations**: Never block web requests with long-running tasks
+- **Log critical operations**: Use `frappe.log_error()` and activity logs for auditability
+
+## Common Mistakes
+
+| Mistake | Why It Fails | Fix |
+|---------|--------------|-----|
+| Over-complex workflows | Hard to maintain, user confusion | Keep workflows linear when possible; split complex flows |
+| Missing error handling in integrations | Silent failures, data inconsistency | Wrap external calls in try/except; log errors; retry logic |
+| Race conditions in document updates | Data corruption | Use `frappe.db.get_value(..., for_update=True)` for locks |
+| SLA without timezone handling | Wrong calculations for global users | Store and compare in UTC; use `frappe.utils.convert_utc_to_timezone` |
+| Not using queues for bulk operations | Timeouts, memory issues | Use `frappe.enqueue()` for operations on many records |
+| Hardcoded role names | Breaks on role changes | Use constants or settings for role names |

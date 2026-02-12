@@ -326,6 +326,7 @@ def get_context(context):
 - For Desk UI scripting → `frappe-desk-customization`
 - For API endpoint implementation → `frappe-api-development`
 - For app architecture → `frappe-app-development`
+- For UI/UX patterns from official apps → `frappe-ui-patterns`
 
 ## References
 
@@ -334,7 +335,9 @@ def get_context(context):
 
 ## Guardrails
 
+- **ALWAYS use Frappe UI for custom frontends**: Never use vanilla JS, jQuery, or custom frameworks for app frontends — Frappe UI (Vue 3 + TailwindCSS) is the standard. This ensures consistency with CRM, Helpdesk, and other official Frappe apps.
 - **Use FrappeUI components**: Prefer `<Button>`, `<Input>`, `<FormControl>` over custom HTML for consistency
+- **Follow CRM/Helpdesk app shell patterns**: For CRUD apps, follow `frappe-ui-patterns` skill which documents sidebar navigation, list views, form layouts, and routing patterns from official Frappe apps
 - **Handle loading states**: Always show loading indicators during API calls; use `resource.loading`
 - **Validate API responses**: Check for errors before accessing data; handle `exc` responses
 - **Configure proxy correctly**: Dev server must proxy API calls to Frappe backend
@@ -350,3 +353,5 @@ def get_context(context):
 | Hardcoded site URL | Breaks across environments | Use relative URLs or environment variables |
 | Not including CSRF token | POST requests fail | Use `frappe.csrf_token` or configure session properly |
 | Missing TailwindCSS config | Frappe UI styles broken | Include `frappe-ui` in Tailwind content paths |
+| Using vanilla JS/jQuery | Inconsistent UX, maintenance burden | Always use Frappe UI for custom frontends |
+| Custom app shell design | Inconsistent with ecosystem | Follow CRM/Helpdesk patterns for navigation, lists, forms |

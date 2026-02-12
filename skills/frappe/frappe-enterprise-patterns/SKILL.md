@@ -204,6 +204,7 @@ frappe.enqueue(
 
 - For complex permission patterns, see [references/advanced-permissions.md](references/advanced-permissions.md)
 - For queue optimization, see [references/queue-patterns.md](references/queue-patterns.md)
+- For UI/UX patterns → `frappe-ui-patterns`
 
 ## References
 
@@ -213,6 +214,8 @@ frappe.enqueue(
 
 ## Guardrails
 
+- **Follow CRM/Helpdesk UI patterns**: For CRUD apps, follow `frappe-ui-patterns` skill which documents app shell, navigation, list views, and form patterns from official Frappe apps. This includes sidebar layouts, quick filters, Kanban views, and detail panels.
+- **Use Frappe UI for frontends**: All custom enterprise frontends must use Frappe UI (Vue 3 + TailwindCSS) — never vanilla JS or jQuery
 - **Design workflows carefully**: Map all states and transitions before implementation; consider rollback paths
 - **Handle edge cases**: Plan for cancelled, on-hold, and exception states in workflows
 - **Test performance early**: Run load tests for high-volume DocTypes and complex queries
@@ -229,3 +232,5 @@ frappe.enqueue(
 | SLA without timezone handling | Wrong calculations for global users | Store and compare in UTC; use `frappe.utils.convert_utc_to_timezone` |
 | Not using queues for bulk operations | Timeouts, memory issues | Use `frappe.enqueue()` for operations on many records |
 | Hardcoded role names | Breaks on role changes | Use constants or settings for role names |
+| Custom UI patterns | Inconsistent UX, user confusion | Study and follow CRM/Helpdesk app shells |
+| Using vanilla JS/jQuery for frontend | Maintenance burden, ecosystem mismatch | Always use Frappe UI with Vue 3 |

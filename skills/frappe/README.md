@@ -32,6 +32,7 @@ These Agent Skills solve this by giving AI assistants expert-level Frappe knowle
 |-------|-------------|
 | `frappe-desk-customization` | Customize Frappe Desk UI with form scripts, list views, and dialogs |
 | `frappe-frontend-development` | Build modern Vue 3 frontend apps using Frappe UI |
+| `frappe-ui-patterns` | UI/UX patterns derived from official Frappe apps (CRM, Helpdesk, HRMS) |
 | `frappe-printing-templates` | Build print formats, email templates, and Jinja-based rendering |
 | `frappe-reports` | Create Report Builder, Query Reports (SQL), and Script Reports (Python + JS) |
 | `frappe-web-forms` | Build public-facing web forms for data collection |

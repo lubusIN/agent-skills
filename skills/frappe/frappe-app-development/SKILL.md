@@ -299,6 +299,8 @@ else:
 
 ## Guardrails
 
+- **Use Frappe UI for custom frontends**: Never use vanilla JS, jQuery, or custom frameworks. Frappe UI (Vue 3 + TailwindCSS) is the ecosystem standard. See `frappe-frontend-development` for setup.
+- **Follow CRM/Helpdesk patterns for CRUD apps**: Follow `frappe-ui-patterns` skill for app shell, navigation, list views, and form layouts derived from official Frappe apps.
 - **Follow naming conventions**: App name must be lowercase with underscores, valid Python identifier
 - **Use hooks.py for integrations**: Never monkey-patch; use doc_events, scheduler_events, boot_session hooks
 - **Keep hooks.py clean**: Only configuration, no logic; import from modules
@@ -315,3 +317,5 @@ else:
 | Editing hooks.py without restart | Changes not picked up | Run `bench restart` after hooks.py changes |
 | Missing `__init__.py` files | Module import errors | Ensure every directory has `__init__.py` |
 | Logic in hooks.py | Hard to test, import errors | Move logic to separate modules, import in hooks |
+| Building frontend with vanilla JS/jQuery | Inconsistent with ecosystem | Use Frappe UI (Vue 3); see `frappe-frontend-development` |
+| Custom app shell for CRUD apps | Inconsistent UX | Follow CRM/Helpdesk patterns for navigation and layouts |

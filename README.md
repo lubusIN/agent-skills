@@ -30,18 +30,6 @@ Skills covering the complete Frappe development lifecycle from app scaffolding a
 **[View all (14)](skills/frappe/README.md)**
 
 </td>
-
-<td style="border: none; vertical-align: center; width: 33%;">
-<center>
-<img width="60" src=".github/assets/placeholder.svg" alt="Frappe Logo" />
-</center>
-</td>
-
-<td style="border: none; vertical-align: center; width: 33%;">
-<center>
-<img width="60" src=".github/assets/placeholder.svg" alt="Frappe Logo" />
-</center>
-</td>
 </tr>
 </table>
 

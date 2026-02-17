@@ -1,6 +1,6 @@
 # Frappe Framework Agent Skills
 
-Expert-level Frappe Framework knowledge for AI coding assistants—DocTypes, APIs, testing, and best practices.
+Frappe Framework Structured knowledge for AI coding assistants—DocTypes, APIs, testing, and best practices.
 
 ## Why Frappe Agent Skills?
 
@@ -10,7 +10,7 @@ AI coding assistants are powerful, but they often:
 - Skip proper DocType controller patterns
 - Ignore existing tooling in your project
 
-These Agent Skills solve this by giving AI assistants expert-level Frappe knowledge in a format they can use.
+These Agent Skills solve this by giving AI assistants deep framework knowledge in a structured format they can use.
 
 ## Available Skills
 
@@ -55,6 +55,9 @@ These Agent Skills solve this by giving AI assistants expert-level Frappe knowle
 ```bash
 # Install all Frappe skills
 npx skills add lubusIN/agent-skills --skills=frappe-*
+
+# Install all skills from all frameworks globally
+npx skills add lubusIN/agent-skills --skills=frappe-* -g
 
 # Or install specific Frappe skills
 npx skills add lubusIN/agent-skills --skills=frappe-doctype-development,frappe-api-development

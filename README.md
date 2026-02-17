@@ -1,6 +1,10 @@
+<p align="center">
+  <img width="250" src=".github/assets/logo.svg" alt="Agent Skills Logo" />
+</p>
+
 # Agent Skills
 
-Expert-level framework knowledge for AI coding assistants—best practices, patterns, and workflows for Frappe, Laravel, FilamentPHP, and more.
+Structured framework knowledge for AI coding assistants—best practices, patterns, and workflows.
 
 ## Why Agent Skills?
 
@@ -10,7 +14,7 @@ AI coding assistants are powerful, but they often:
 - Skip proper architectural patterns and conventions
 - Ignore existing tooling and best practices in your project
 
-Agent Skills solve this by giving AI assistants expert-level framework knowledge in a structured, discoverable format.
+Agent Skills solve this by giving AI assistants deep framework knowledge in a structured, discoverable format.
 
 ## Available Skills
 
@@ -18,12 +22,25 @@ Agent Skills solve this by giving AI assistants expert-level framework knowledge
 <tr style="border: none;">
 
 <td style="border: none; vertical-align: top; width: 33%;">
+<img width="60" src=".github/assets/frappe.svg" alt="Frappe Logo" />
 <h3>Frappe Framework</h3>
-Expert-level skills covering the complete Frappe development lifecycle—from app scaffolding and DocType development to APIs, UI customization, reports, testing, and production patterns.
+Skills covering the complete Frappe development lifecycle from app scaffolding and DocType development to APIs, UI customization, reports, testing, and production patterns.
 <br/><br/>
 
-**[📖 View all Skills (13) →](skills/frappe/README.md)**
+**[View all (14)](skills/frappe/README.md)**
 
+</td>
+
+<td style="border: none; vertical-align: center; width: 33%;">
+<center>
+<img width="60" src=".github/assets/placeholder.svg" alt="Frappe Logo" />
+</center>
+</td>
+
+<td style="border: none; vertical-align: center; width: 33%;">
+<center>
+<img width="60" src=".github/assets/placeholder.svg" alt="Frappe Logo" />
+</center>
 </td>
 </tr>
 </table>
@@ -32,24 +49,25 @@ Expert-level skills covering the complete Frappe development lifecycle—from ap
 
 ### Using Skills CLI (Recommended)
 
-The easiest way to install is using the [Skills CLI](https://skills.sh):
+The easiest way to install is using the [Skills CLI](https://github.com/vercel-labs/skills?tab=readme-ov-file#skills):
 
 ```bash
 # Install all skills from all frameworks
 npx skills add lubusIN/agent-skills
+
+# Install all skills from all frameworks globally
+npx skills add lubusIN/agent-skills -g
 
 # Install all Frappe skills
 npx skills add lubusIN/agent-skills --skills=frappe-*
 
 # Install specific skills from any framework
 npx skills add lubusIN/agent-skills --skills=frappe-doctype-development,frappe-api-development
-
-# Coming soon: Laravel and FilamentPHP skills
-# npx skills add lubusIN/agent-skills --skills=laravel-*
-# npx skills add lubusIN/agent-skills --skills=filament-*
 ```
 
 The CLI automatically detects your AI assistant (Claude Code, Cursor, Codex, VS Code) and installs to the correct location.
+
+Refer [Skills CLI](https://github.com/vercel-labs/skills?tab=readme-ov-file#skills) doc for all the available args
 
 ### Manual Installation
 
@@ -96,34 +114,12 @@ Each SKILL.md follows a standard format:
 - **Failure modes** — Common issues and fixes
 - **Escalation** — When to consult docs or ask user
 
-## Directory Structure
-
-```
-agent-skills/
-├── README.md                                    # This file
-├── skills/
-│   ├── frappe/                                  # Frappe Framework skills
-│   │   ├── README.md                            # Frappe-specific documentation
-│   │   ├── frappe-router/
-│   │   ├── frappe-project-triage/
-│   │   ├── frappe-doctype-development/
-│   │   ├── frappe-api-development/
-│   │   ├── frappe-testing/
-│   │   ├── frappe-manager/
-│   │   ├── frappe-enterprise-patterns/
-│   │   └── frappe-app-development/              # Legacy combined skill
-│   ├── laravel/                                 # Coming soon
-│   └── filamentphp/                             # Coming soon
-├── CONTRIBUTING.md
-└── LICENSE
-```
-
 ## Contributing
 
 Contributions welcome! To add or improve a skill:
 
 1. Fork this repository
-2. Create or modify skill in `skills/<framework>/<skill-name>/`
+2. Create or modify skill in `skills/<topic>/<skill-name>/`
 3. Ensure SKILL.md has all required sections
 4. Test with your AI assistant
 5. Submit a pull request
@@ -134,22 +130,19 @@ Contributions welcome! To add or improve a skill:
 - Push detailed content into `references/`
 - Include verification steps
 - Document failure modes
-- Link to official framework docs when appropriate
+- Link to official docs when appropriate
 
-### Adding a New Framework
+### Adding a New Skill
 
-To add skills for a new framework (e.g., Django, Rails):
-
-1. Create `skills/<framework>/` directory
-2. Add `skills/<framework>/README.md` with framework-specific documentation
+1. Create `skills/<topic>/` directory
+2. Add `skills/<topic>/README.md` with topic-specific documentation
 3. Create individual skill directories following the Agent Skills specification
-4. Update the main README.md to list the new framework
+4. Update the main README.md to list the new topic
 
 ## Credits
 
 - Inspired by [WordPress Agent Skills](https://github.com/WordPress/agent-skills)
 - Built on the [Anthropic Agent Skills Specification](https://agentskills.io/)
-- Maintained by [Lubus](https://github.com/lubusIN)
 
 
 ## Meet Your Artisans

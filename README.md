@@ -4,7 +4,7 @@
 
 # Agent Skills
 
-Structured framework knowledge for AI coding assistants—best practices, patterns, and workflows.
+Structured framework knowledge for AI coding assistants: best practices, patterns, and workflows.
 
 ## Why Agent Skills?
 
@@ -95,12 +95,12 @@ When you ask your AI assistant to work on framework code, it reads these skills 
 ### Skill Structure
 
 Each SKILL.md follows a standard format:
-- **When to use** — Trigger conditions for this skill
-- **Inputs required** — What info the agent needs before starting
-- **Procedure** — Step-by-step instructions
-- **Verification** — Checklist to confirm success
-- **Failure modes** — Common issues and fixes
-- **Escalation** — When to consult docs or ask user
+- **When to use** - Trigger conditions for this skill
+- **Inputs required** - What info the agent needs before starting
+- **Procedure** - Step-by-step instructions
+- **Verification** - Checklist to confirm success
+- **Failure modes** - Common issues and fixes
+- **Escalation** - When to consult docs or ask the user
 
 ## Contributing
 

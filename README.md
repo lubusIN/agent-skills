@@ -6,6 +6,9 @@
 
 Structured framework knowledge for AI coding assistants: best practices, patterns, and workflows.
 
+> [!NOTE]
+> _**AI Authorship Disclosure:**_
+> Drafted with GPT-5.3 Codex from official documentation, then reviewed, refined, and validated by humans. Tested with AI assistants and improved through practical iteration.
 ## Why Agent Skills?
 
 AI coding assistants are powerful, but they often:
